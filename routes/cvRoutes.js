@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const cvController = require('../controllers/cvController');
-/*
-router.post('/', cvController.create);
+const auth = require('../middlewares/auth');
+
+// CV routes
+router.post('/', auth.verifyUser , cvController.create);
 router.get('/', cvController.getAll);
 router.get('/:id', cvController.getOne);
-router.put('/:id', cvController.update);
-router.delete('/:id', cvController.delete);
+router.put('/:id', auth.verifyUser , cvController.update);
+router.delete('/:id', auth.verifyUser , cvController.delete);
+router.patch('/:id', auth.verifyUser  , cvController.updateVisibility);
 
-module.exports = router;*/
+module.exports = router;

@@ -1,9 +1,11 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const {verifyUser}=require('../validators/userValidator');
 
 exports.register = async (req, res) => {
     try {
+        verifyUser(req.body);
       const { email, password, lastname, surname } = req.body;
       const user = await User.findOne({ email });
       if (user) {

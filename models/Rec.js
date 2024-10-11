@@ -8,6 +8,11 @@ const RecSchema = new mongoose.Schema({
     text: {
       type: String,
       required: true
+    },
+    RecAuthor:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
   });
 
