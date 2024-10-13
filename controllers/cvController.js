@@ -33,7 +33,7 @@ module.exports = {
                 description,
                 user : {
                     id: userCv._id,
-                    firstname: userCv.firstname,
+                    surname: userCv.surname,
                     lastname: userCv.lastname
                 }
             });

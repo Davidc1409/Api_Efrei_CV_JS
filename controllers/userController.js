@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 
 module.exports = {
     getUserInfo: (req, res) => {
-        const { id, firstname, lastname, email } = req.user;
+        const { id, surname, lastname, email } = req.user;
         res.send({
             id,
-            firstname,
+            surname,
             lastname,
             email
         });

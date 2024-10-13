@@ -9,10 +9,10 @@ module.exports = {
         let userSchema = {
             type: 'object',
             properties: {
-                firstname: {
+                surname: {
                     type: 'string',
                     minLength: 3,
-                    errorMessage: 'Firstname is invalid'
+                    errorMessage: 'surname is invalid'
                 },
                 lastname: {
                     type: 'string',
