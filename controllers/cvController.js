@@ -24,9 +24,9 @@ module.exports = {
                 userId
             });
             newCv.save();
-            const {lastname, firstname, contact, description, isVisible,experiencesPedagogiques, experiencesProfessionnelles, userId : userCv } = newCv;
+            const {_id, lastname, firstname, contact, description, isVisible,experiencesPedagogiques, experiencesProfessionnelles, userId : userCv } = newCv;
             res.status(201).send({
-                
+                id : _id,
                 lastname,
                 firstname,
                 isVisible,
