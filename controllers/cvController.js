@@ -102,7 +102,7 @@ module.exports = {
     },
 
     // requete DELETE /:id Supprimer un cv
-    deleteBook: (req, res) => {
+    deleteCv: (req, res) => {
         const cvId = req.params.id;
         CvModel.findByIdAndDelete(cvId)
             .then((cv) => {
