@@ -1,6 +1,6 @@
 const CvModel = require('./../models/CV');
 const UserModel = require('./../models/User');
-const { verifyCV } = require('../validator/cvValidator');
+const { verifyCV } = require('../validators/cvValidator');
 
 module.exports = {
     // requete POST / pour creer un CV
