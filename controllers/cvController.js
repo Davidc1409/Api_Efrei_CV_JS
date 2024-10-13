@@ -7,8 +7,8 @@ module.exports = {
     create: async (req, res) => {
         try {
             verifyCV(req.body);
-            const user = await UserModel.findById(req.body.userId);
-            if (!user) {
+            const userId = await UserModel.findById(req.body.userId);
+            if (!userId) {
                 res.status(400).send({
                     message: 'User not exist'
                 });
@@ -21,17 +21,17 @@ module.exports = {
                 experiencesPedagogiques : req.body.experiencesPedagogiques,
                 experiencesProfessionnelles : req.body.experiencesProfessionnelles,
                 isVisible : req.body.isVisible,
-                user
+                userId
             });
             newCv.save();
-            const { _id, lastname, firstname, contact, description, isVisible,experiencesPedagogiques, experiencesProfessionnelles, user : userCv } = newCv;
+            const {lastname, firstname, contact, description, isVisible,experiencesPedagogiques, experiencesProfessionnelles, userId : userCv } = newCv;
             res.status(201).send({
-                id: _id,
+                
                 lastname,
                 firstname,
                 isVisible,
                 description,
-                user : {
+                userId : {
                     id: userCv._id,
                     surname: userCv.surname,
                     lastname: userCv.lastname

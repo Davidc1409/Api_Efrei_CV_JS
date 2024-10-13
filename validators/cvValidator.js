@@ -80,7 +80,7 @@ module.exports = {
                     }
                 }
             },
-            required: ['lastname','firstname', 'user','isVisible']
+            required: ['lastname','firstname', 'userId','isVisible']
         };
 
         let result = validator.validate(cv, cvSchema);
