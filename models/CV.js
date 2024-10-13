@@ -5,7 +5,7 @@ const CvSchema = new mongoose.Schema({
       ref: 'User',
       required: true
     },
-    name: {
+    lastname: {
       type: String,
       required: true
     },
@@ -18,6 +18,10 @@ const CvSchema = new mongoose.Schema({
     },
     contact: {
       type: String
+    },
+    isVisible : {
+      type: Boolean,
+      required : true
     },
     experiencesPedagogiques: [
       {
