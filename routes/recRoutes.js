@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const recController = require('../controllers/recController');
-/*
-router.post('/', recController.create);
-router.get('/', recController.getAll);
-router.get('/:id', recController.getOne);
+const verifyAddRec=require('../middlewares/VerifyAddRec')
 
-module.exports = router;*/
+// Recommendation routes
+router.post('/:id/recommendation', verifyAddRec , recController.create);
+router.get('/:id/recommendations', recController.getAll);
+
+module.exports = router;
