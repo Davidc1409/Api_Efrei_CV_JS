@@ -14,7 +14,7 @@ module.exports = {
                     minLength: 3,
                     errorMessage: 'Firstname is invalid'
                 },
-                name: {
+                lastname: {
                     type: 'string',
                     minLength: 3,
                     errorMessage: 'Lastname is invalid'
@@ -31,7 +31,7 @@ module.exports = {
                     //pattern: '^(?=.*[A-Z])(?=.*[0-9]).+$' // Le password doit contenir au moins une majuscule et 1 chiffre
                 }
             },
-            required: ['surname', 'name', 'email', 'password']
+            required: ['surname', 'lastname', 'email', 'password']
         };
 
         let result = validator.validate(user, userSchema);

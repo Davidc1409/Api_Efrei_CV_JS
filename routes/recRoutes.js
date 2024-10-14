@@ -1,10 +1,10 @@
-/*const express = require('express');
+const express = require('express');
 const router = express.Router();
 const recController = require('../controllers/recController');
-const auth=require('../middlewares/auth')
+const verifyAddRec=require('../middlewares/VerifyAddRec')
 
 // Recommendation routes
-router.post('/:id/recommendation', auth.verifyUser , recController.create);
+router.post('/:id/recommendation', verifyAddRec , recController.create);
 router.get('/:id/recommendations', recController.getAll);
 
-module.exports = router;*/
+module.exports = router;

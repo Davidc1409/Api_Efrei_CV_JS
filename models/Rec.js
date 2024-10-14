@@ -16,4 +16,4 @@ const RecSchema = new mongoose.Schema({
     }
   });
 
-  module.exports = mongoose.model('Recommendation', RecSchema);
+  module.exports = mongoose.model('Rec', RecSchema);
