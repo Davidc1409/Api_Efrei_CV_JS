@@ -13,14 +13,26 @@ const authController = require('../controllers/authController');
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: a valid email address
+ *                 example: "email@email.com ?"
+ *               password : 
+ *                 type : string
+ *                 description : Le mot de passe doit comporter au moins une majuscule et un chiffre
+ *                 expample : "Azerty123"
  *     responses:
  *       201:
  *         description: Utilisateur créé avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               $ref: '#/models/User'
  *       400:
  *         description: Erreur de validation
  */
@@ -37,14 +49,14 @@ router.post('/register', authController.register);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/models/User'
  *     responses:
  *       201:
  *         description: Utilisateur authentifié avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               $ref: '#/models/User'
  *       400:
  *         description: Erreur de validation
  */
@@ -62,14 +74,14 @@ router.post('/login', authController.login);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/models/User'
  *     responses:
  *       201:
  *         description: Utilisateur déconnecté
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               $ref: '#/models/User'
  *       400:
  *         description: Erreur de validation
  */

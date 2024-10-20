@@ -13,11 +13,12 @@ module.exports = {
     },
 
     getUserCV: async (req, res) => {
+        console.log(req.user.id)
         const cv = await CvModel
             .find({
-                userId: new mongoose.Types.ObjectId(req.user.id)
+                author: new mongoose.Types.ObjectId(req.user.id)
             })
-            .populate('userId');
+            .populate('author');
 
         res.send(cv);
     }

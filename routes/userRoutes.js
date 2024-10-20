@@ -14,14 +14,26 @@ const { verifyUser } = require('../middlewares/auth');
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: a valid email address
+ *                 example: "email@email.com ?"
+ *               password : 
+ *                 type : string
+ *                 description : Le mot de passe doit comporter au moins une majuscule et un chiffre
+ *                 expample : "Azerty123"
  *     responses:
  *       201:
  *         description: Infos obtenues 
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/User'
+ *               $ref: '#/models/User'
  *       400:
  *         description: Erreur de validation
  */
@@ -38,14 +50,14 @@ router.get('/me', verifyUser, userController.getUserInfo);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/CV'
+ *             $ref: '#/models/CV'
  *     responses:
  *       201:
  *         description: CV récupéré avec succès
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/CV'
+ *               $ref: '#/models/CV'
  *       400:
  *         description: Erreur de validation
  */

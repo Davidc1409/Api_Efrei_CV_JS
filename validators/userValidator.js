@@ -27,8 +27,8 @@ module.exports = {
                 password: {
                     type: 'String',
                     minLength: 6,
-                    errorMessage: 'password is invalid'
-                    //pattern: '^(?=.*[A-Z])(?=.*[0-9]).+$' // Le password doit contenir au moins une majuscule et 1 chiffre
+                    errorMessage: 'password is invalid',
+                    pattern: '^(?=.*[A-Z])(?=.*[0-9]).+$' // Le password doit contenir au moins une majuscule et 1 chiffre
                 }
             },
             required: ['surname', 'lastname', 'email', 'password']
