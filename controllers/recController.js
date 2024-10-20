@@ -22,7 +22,7 @@ exports.create = async (req, res) => {
         _id : newRecommendation._id,
         cvId : newRecommendation.cvId, 
         text: newRecommendation.text,
-        recAuthor : {
+        RecAuthor : {
           id : recAuthor,
           surname : user.surname,
           lastname : user.lastname
