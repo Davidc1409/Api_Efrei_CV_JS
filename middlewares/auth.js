@@ -4,18 +4,17 @@ const UserModel = require('./../models/User');
 module.exports = {
     verifyUser: async (req, res, next) => {
         let token = req.headers['authorization'];
-        token = token.replace('Bearer ', '');
-        console.log(token)
-        if (!token || token == "Bearer ") {
-            console.log("on rentre")
+
+        if (!token) {
             res.status(401).send({
                 message: 'Unauthorized user'
             });
         }
+
+        token = token.replace('Bearer ', '');
+
         //Decryptage du token
-        const { userId } = jwt.verify(token, process.env.JWT_SECRET || 'secret',function(err, decoded){
-            console.log(err);
-        });
+        const { userId } = jwt.verify(token, process.env.JWT_SECRET || 'secret');
         const user = await UserModel.findById(userId);
         req.user = user;
         if (!req.user) {
@@ -23,6 +22,5 @@ module.exports = {
                 message: 'Unauthorized user'
             });
         }
-        next();
     }
 };
