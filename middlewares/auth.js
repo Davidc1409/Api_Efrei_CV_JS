@@ -5,16 +5,17 @@ module.exports = {
     verifyUser: async (req, res, next) => {
         let token = req.headers['authorization'];
         token = token.replace('Bearer ', '');
-
-        if (!token) {
+        console.log(token)
+        if (!token || token == "Bearer ") {
+            console.log("on rentre")
             res.status(401).send({
                 message: 'Unauthorized user'
             });
         }
-
-
         //Decryptage du token
-        const { userId } = jwt.verify(token, process.env.JWT_SECRET || 'secret');
+        const { userId } = jwt.verify(token, process.env.JWT_SECRET || 'secret',function(err, decoded){
+            console.log(err);
+        });
         const user = await UserModel.findById(userId);
         req.user = user;
         if (!req.user) {
@@ -22,7 +23,6 @@ module.exports = {
                 message: 'Unauthorized user'
             });
         }
-
         next();
     }
 };

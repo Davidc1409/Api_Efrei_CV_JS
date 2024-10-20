@@ -33,16 +33,40 @@ const verifyAddRec=require('../middlewares/VerifyAddRec')
  *                 example: "Excellent travail et très professionnel."
  *     responses:
  *       201:
- *         description: Recommandation ajoutée avec succès
+ *         description: La nouvelle recommendation
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 message:
+ *                 cvId:
  *                   type: string
- *                   description: Message de confirmation de la création de la recommandation
- *                   example: "Recommendation added successfully."
+ *                   description: identifiant du cv
+ *                   example: "67153db7c5de97637de159r2"
+ *                 text:
+ *                   type: string
+ *                   description: le contenu de la recommendation
+ *                   example: "C'est nul"
+ *                 RecAuthor:
+ *                   type: object
+ *                   properties:
+ *                      id:
+ *                          type : string
+ *                          description: identifiant de l'auteur de la recommendation
+ *                          example: "6713a492b6b83845ad4e02nn"
+ *                      surname:
+ *                          type : string
+ *                          description : prénom de l'auteur
+ *                          example : "Bertrand"
+ *                      lastname :
+ *                          type : string
+ *                          description: nom de famille de l'auteur
+ *                          example : "Dupont"
+ *                 _id:
+ *                   type: string
+ *                   description: identifiant de la recommendation
+ *                   example: "67156f2f0d69e7bea012c7er"
+ * 
  *       400:
  *         description: Erreur de validation ou problème lors de l'ajout de la recommandation
  *         content:
