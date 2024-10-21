@@ -13,7 +13,6 @@ module.exports = {
     },
 
     getUserCV: async (req, res) => {
-        console.log(req.user.id)
         const cv = await CvModel
             .find({
                 author: new mongoose.Types.ObjectId(req.user.id)
