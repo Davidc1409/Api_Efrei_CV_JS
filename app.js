@@ -6,8 +6,8 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const app = express();
 
-const apiRouter = require('./routes')
 app.use(cors());
+const apiRouter = require('./routes')
 const swaggerOptions = {
     swaggerDefinition: {
       openapi: '3.0.0', // Version OpenAPI
