@@ -4,7 +4,7 @@ const UserModel = require('./../models/User');
 module.exports = {
     verifyUser: async (req, res, next) => {
         let token = req.headers['authorization'];
-
+        console.log(token);
         if (!token) {
             res.status(401).send({
                 message: 'Unauthorized user'
@@ -22,5 +22,6 @@ module.exports = {
                 message: 'Unauthorized user'
             });
         }
+        next();
     }
 };
